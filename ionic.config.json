@@ -1,0 +1,20 @@
+{
+  "name": "warpath",
+  "app_id": "",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  },
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "http://172.18.1.133:10001/api"
+    },
+
+    {
+      "path": "/media-repo",
+      "proxyUrl": "http://172.18.8.11:8080",
+      "rejectUnauthorized": false
+    }
+  ]
+}

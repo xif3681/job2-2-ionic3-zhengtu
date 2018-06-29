@@ -1,0 +1,69 @@
+page-list {
+
+    .body-padding-top {
+        padding-top:52px;
+    }
+    .content-ios {
+        .body-padding-top {
+            padding-top:58px;
+        }
+        
+
+    }
+  .pageMenuSlides {
+    border-bottom: 0.55px solid rgba(0, 0, 0, 0.3);
+    .swiper-container {
+      width: 100%;
+      height: 44px;
+    }
+    .swiper-slide {
+      background: #fff;
+      color: #333;
+    }
+    .bottomLine {
+      border-bottom: 2px solid #488aff;
+    }
+  }
+  ion-slides {
+    background-color: white;
+    .slide-zoom {
+      height: 100%;
+      // text-align: unset;
+    }
+  }
+// div限制字数，超出部分用省略号
+  .ion-title-zt{
+    white-space:nowrap; 
+    text-overflow:ellipsis; 
+    -o-text-overflow:ellipsis; 
+    overflow: hidden; 
+  }
+
+  .bar-button-md {
+    margin: 0;
+    padding: 0px;
+  }
+  .bar-button-ios {
+    padding:0 16px;
+  }
+
+  ion-header {
+    .ion-ios-arrow-back:before {
+    content: "\f4c7";
+    }
+    .ion-md-arrow-back:before {
+    content: "\f4c7";
+  }
+}
+.article-zt {
+  padding-bottom: 44px;
+}
+.h-title {
+  font-weight:bold;
+}
+.page-zt-posi {
+  padding-bottom: 15px;
+}
+
+
+}

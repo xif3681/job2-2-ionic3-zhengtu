@@ -1,0 +1,89 @@
+
+  <ion-header>
+    
+    <ion-navbar>
+              <button ion-button menuToggle >
+                <ion-icon name="menu"></ion-icon>
+              </button>
+              <div  class="rich_media title-zt">                          
+                  <ion-title>
+                    <div class="text-center"> SIID {{massage}}刊</div>
+                  </ion-title>
+              </div>
+
+    </ion-navbar>
+
+      <div class="pageMenuSlides rich_media">
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide  swiper-size" *ngFor="let item of titles;let i=index;" tappable >
+                <p (click)="selectPageMenu(item.id,i)" [ngClass]="{'activity': i === currentTitle, 'third': i !== currentTitle}">
+                 <span class="activity-span">{{item.name}}</span>
+                  </p>
+                
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="lll"></div> -->
+
+  </ion-header>
+  
+  <ion-content padding (ionScroll)="scrollHandler($event)" >
+
+    <div id="js_article" class="rich_media" #searchBox>
+      <ion-grid *ngFor="let title of model.curentMon;let j=index;" id="{{title.id}}" >
+        <ion-row *ngIf="title.news">
+          <ion-col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12>
+            <h6 class="title-h4">{{title.name}}</h6>
+      
+          </ion-col>
+        </ion-row>
+
+
+        <!-- 第一张 -->
+        <ion-row *ngFor="let policyArt of title.news;let i=index;" [ngClass]="{'display-none': i !== 0}" class="subject-relative ">
+          <ion-col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12  >
+          
+            <div class="home-img-1 cursor-si" (click)="openPage(policyArt.id)">
+              <img src="{{policyArt.top_image}}" alt="图片" class="img-fluid rounded" >
+            </div>
+          </ion-col>
+          <ion-col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 class="cursor-si main-font-size subject-zt">
+
+            <div class="mask-zt" (click)="openPage(policyArt.id)">
+              <a >{{policyArt.subject}}</a>
+            </div>
+          </ion-col>
+ 
+        </ion-row>
+         
+        <!-- 非第一张 -->
+        <ion-row  class=" margin-top-zt" *ngFor="let policyArt of title.news;let i=index;" [ngClass]="{'display-none': i ===
+        0}">
+          <ion-col col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 class="border-bottom-zt" [ngClass]="{'border-top-zt': i === 1}" *ngIf="policyArt.top_image">
+              <div class="cursor-si main-font-size " (click)="openPage(policyArt.id)">
+                <a >{{policyArt.subject}}</a>
+              </div>
+          </ion-col>
+          <ion-col col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 *ngIf="policyArt.top_image">
+            <div class="home-img cursor-si">
+              <img src="{{policyArt.top_image}}" alt="图片" class="img-fluid rounded" (click)="openPage(policyArt.id)">
+            </div>
+          </ion-col>
+          <ion-col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 class="border-bottom-zt" [ngClass]="{'border-top-zt': i === 1}" *ngIf="!policyArt.top_image">
+            <div class="cursor-si main-font-size " (click)="openPage(policyArt.id)">
+              <a >{{policyArt.subject}}</a>
+            </div>
+          </ion-col>
+        </ion-row>
+
+     
+
+      </ion-grid>
+
+    </div>
+  </ion-content>
+
+
