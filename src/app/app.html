@@ -1,0 +1,33 @@
+<ion-menu [content]="content">
+  <ion-header class="sidebar-title-bg-zt">
+    <ion-toolbar>
+      <ion-title>往期杂志</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="sidebar-bg-zt">
+    <ion-list>
+      <div class="logo-zt">
+        <!-- <img src="../assets/imgs/zt-logo.png" alt="图片"> -->
+      </div>
+
+
+      <div  *ngFor="let years of model.years;let i=index;">
+        <button   ion-item (click)="getMonth(i)" class="menu-btn-zt">
+          {{years.name}}
+        </button>
+          <ion-list>
+            <button class="menu-btn-zt padding-left-zt" ion-item *ngFor="let mons of years.mons" (click)="openJournal(mons.id,years.name,mons.name)">{{mons.name}}</button>
+          </ion-list>
+        </div>
+
+
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false" ></ion-nav>
+
+
